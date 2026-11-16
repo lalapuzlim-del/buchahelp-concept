@@ -359,3 +359,9 @@ iframe.dash{width:100%;border:1px solid var(--line);border-radius:24px;height:15
 .hero h1{font-size:clamp(32px,4.4vw,58px)}
 .hero .grid{padding:128px 0 84px}
 .hero p.lead{margin:18px 0 24px}
+
+/* v2g */
+.lg-bird.kick{animation:kick .26s ease-out}
+@keyframes kick{0%{transform:scale(1)}40%{transform:scale(1.1,.92) translateY(2%)}100%{transform:scale(1)}}
+button.lhint{display:block;margin:16px auto 0;background:none;border:0;cursor:pointer;font-family:inherit;padding:6px 14px;border-radius:999px}
+button.lhint:hover{color:#fff;background:rgba(255,255,255,.08)}
