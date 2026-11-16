@@ -235,7 +235,7 @@ if(hero&&scene&&!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:
     var clone=D.createElement('div');clone.className='runner';
     clone.style.left=sb.left+'px';clone.style.top=sb.top+'px';clone.style.width=sb.width+'px';clone.style.height=sb.height+'px';
     var s2=D.createElementNS(ns,'svg');s2.setAttribute('viewBox',bb.x+' '+bb.y+' '+bb.width+' '+bb.height);s2.setAttribute('preserveAspectRatio','none');
-    $('path',stork).forEach(function(p){s2.appendChild(p.cloneNode(true))});
+    $$('path',stork).forEach(function(p){s2.appendChild(p.cloneNode(true))});
     var legL=bb.height*.46,hx=bb.x+bb.width*.42,hy=bb.y+bb.height*.70,legEls=[];
     [0,1].forEach(function(k){var o=D.createElementNS(ns,'g');o.setAttribute('transform','translate('+(hx+k*bb.width*.05)+','+hy+')');var g=D.createElementNS(ns,'g'),q=D.createElementNS(ns,'path');q.setAttribute('d','M0 0L0 '+legL+'l'+(bb.width*.07)+' 0');q.setAttribute('stroke','#f8af2b');q.setAttribute('stroke-width',bb.height*.04);q.setAttribute('stroke-linecap','round');q.setAttribute('stroke-linejoin','round');q.setAttribute('fill','none');g.appendChild(q);o.appendChild(g);s2.insertBefore(o,s2.firstChild);legEls.push(g)});
     clone.appendChild(s2);D.body.appendChild(clone);
