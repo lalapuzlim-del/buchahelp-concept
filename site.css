@@ -370,3 +370,8 @@ button.lhint:hover{color:#fff;background:rgba(255,255,255,.08)}
 .paw{position:fixed;z-index:340;pointer-events:none;width:16px;height:19px;margin:-10px 0 0 -8px;animation:pawfade 1.9s ease-out forwards}
 .paw svg{display:block;width:100%;height:100%;filter:drop-shadow(0 0 1.5px rgba(8,28,80,.55))}
 @keyframes pawfade{0%{opacity:0}10%{opacity:1}100%{opacity:0}}
+
+/* ледь помітна підказка під лелекою */
+.lhint{color:rgba(159,182,230,.42);font-size:12px;font-weight:500;letter-spacing:.03em}
+.lhint:before{opacity:.5}
+button.lhint:hover{color:rgba(255,255,255,.7)}
