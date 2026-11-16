@@ -136,8 +136,12 @@ h2{font-size:clamp(28px,3.6vw,46px);letter-spacing:-.3px}
 /* team */
 .team{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:36px}
 .person{text-align:center}
-.person .av{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));color:var(--yellow);display:grid;place-items:center;font-weight:800;font-size:26px;margin:0 auto 12px;font-family:var(--head);transition:transform .3s}
-.person:hover .av{transform:scale(1.08) rotate(-4deg)}
+.person img.av{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:26px;object-fit:cover;margin:0 0 12px;box-shadow:var(--shadow);transition:transform .3s}
+.person:hover img.av{transform:translateY(-6px)}
+.faces{display:flex;align-items:center;margin-top:28px}
+.faces img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:3px solid #0a2350;margin-left:-12px;background:#fff}
+.faces img:first-child{margin-left:0}
+.faces span{margin-left:14px;color:#c9d8f5;font-size:14px;font-weight:600}
 .person b{display:block;font-size:15px}.person span{font-size:13px;color:var(--muted)}
 .chips2{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .pchip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:12px 22px;font-weight:700}
