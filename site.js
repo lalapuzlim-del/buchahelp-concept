@@ -6,10 +6,10 @@ var $=function(s,r){return (r||D).querySelector(s)}, $$=function(s,r){return Arr
 
 /* ---------- словник UA / EN ---------- */
 var T={
- uk:{'nav.about':'Про фонд','nav.news':'Новини','nav.transp':'Прозорість','nav.help':'Як допомогти','nav.disinfo':'Протидія рф пропаганді','nav.contacts':'Контакти','cta.donate':'Підтримати','cta.vol':'Стати волонтером',
+ uk:{'nav.about':'Про фонд','nav.news':'Новини','nav.transp':'Прозорість','nav.help':'Як допомогти','nav.disinfo':'Протидія рф пропаганді','nav.contacts':'Контакти','sub.about':'Про нас','sub.projects':'Проєкти','sub.partners':'Партнери','sub.amb':'Амбасадори','sub.team':'Команда','sub.reports':'Звіти','cta.donate':'Підтримати','cta.vol':'Стати волонтером',
   'hero.title':'Віра у добро та силу єдності: наш шлях до кращого завтра','hero.lead':'Фонд «Буча Хелп» з 2022 року доставляє гуманітарну допомогу людям, які її потребують. Разом ми можемо більше.',
   'hero.m1':'Звіти відкриті','hero.m2':'Допомога з 2022 року','s.nums':'Результати фонду','s.calc':'Що дає ваш внесок','s.ways':'Як допомогти','s.trips':'Історії поїздок','s.dis':'Протидія рф пропаганді','s.team':'Команда','s.partners':'Партнери'},
- en:{'nav.about':'About','nav.news':'News','nav.transp':'Transparency','nav.help':'Ways to help','nav.disinfo':'Countering Russian propaganda','nav.contacts':'Contacts','cta.donate':'Donate','cta.vol':'Become a volunteer',
+ en:{'nav.about':'About','nav.news':'News','nav.transp':'Transparency','nav.help':'Ways to help','nav.disinfo':'Countering Russian propaganda','nav.contacts':'Contacts','sub.about':'About us','sub.projects':'Projects','sub.partners':'Partners','sub.amb':'Ambassadors','sub.team':'Team','sub.reports':'Reports','cta.donate':'Donate','cta.vol':'Become a volunteer',
   'hero.title':'Faith in kindness and the strength of unity: our path to a better tomorrow','hero.lead':'Bucha Help has been delivering humanitarian aid since 2022 to people in need. Together we can do more.',
   'hero.m1':'Open reports','hero.m2':'Helping since 2022','s.nums':'Our results','s.calc':'What your gift does','s.ways':'Ways to help','s.trips':'Stories from the road','s.dis':'Countering Russian propaganda','s.team':'Team','s.partners':'Partners'}
 };
@@ -17,16 +17,22 @@ var lang=LS.get('bh_lang')||'uk', theme=LS.get('bh_theme')||'light';
 function t(k){return (T[lang]&&T[lang][k])||T.uk[k]||k}
 
 /* ---------- шапка і футер ---------- */
-var NAV=[['about.html','nav.about'],['index.html#news','nav.news'],['transparency.html','nav.transp'],['help.html','nav.help'],['disinfo.html','nav.disinfo'],['contacts.html','nav.contacts']];
+var SUB=[['about.html','sub.about'],['projects.html','sub.projects'],['partners.html','sub.partners'],['ambassadors.html','sub.amb'],['about.html#team','sub.team'],['transparency.html#reports','sub.reports']];
+var NAV=[['about.html','nav.about','dd'],['index.html#news','nav.news'],['transparency.html','nav.transp'],['help.html','nav.help'],['disinfo.html','nav.disinfo'],['contacts.html','nav.contacts']];
 var page=D.body.getAttribute('data-page')||'';
+var ABOUT_GROUP=['about.html','projects.html','partners.html','ambassadors.html'];
 function buildChrome(){
-  var items=NAV.map(function(n){var on=(n[0]===page)?' class="on"':'';return '<li><a href="'+n[0]+'"'+on+' data-i18n="'+n[1]+'">'+t(n[1])+'</a></li>'}).join('');
+  var items=NAV.map(function(n){
+    var on=(n[0]===page||(n[2]==='dd'&&ABOUT_GROUP.indexOf(page)>-1))?' class="on"':'';
+    if(n[2]==='dd'){var sub=SUB.map(function(s){return '<li><a href="'+s[0]+'" data-i18n="'+s[1]+'">'+t(s[1])+'</a></li>'}).join('');
+      return '<li class="dd"><a href="'+n[0]+'"'+on+' aria-haspopup="true"><span data-i18n="'+n[1]+'">'+t(n[1])+'</span> ▾</a><ul class="sub">'+sub+'</ul></li>'}
+    return '<li><a href="'+n[0]+'"'+on+' data-i18n="'+n[1]+'">'+t(n[1])+'</a></li>'}).join('');
   var h='<div class="progress" id="prog"></div><div class="ribbon">Концепція дизайну. Це не офіційний сайт фонду, тексти-чернетки позначено.</div>'+
-  '<header class="site has-ribbon" id="hdr"><div class="bar"><div class="nav"><a class="logo" href="index.html"><span class="mark">BH</span>BuchaHelp</a>'+
+  '<header class="site has-ribbon" id="hdr"><div class="bar"><div class="nav"><a class="logo" href="index.html" aria-label="BuchaHelp"><img src="logo.png" alt="BuchaHelp" width="122" height="40"></a>'+
   '<ul class="menu" id="menu">'+items+'</ul><div class="tools"><button class="tool" id="lang" aria-label="Мова">'+(lang==='uk'?'UA':'EN')+'</button><button class="tool" id="theme" aria-label="Тема">'+(theme==='dark'?'☀':'☾')+'</button>'+
   '<button class="btn primary sm" data-donate data-i18n="cta.donate">'+t('cta.donate')+'</button><button class="tool burger" id="burger" aria-label="Меню" aria-expanded="false">☰</button></div></div></div></header>';
-  var f='<footer class="site"><div class="wrap"><div class="fgrid"><div><h4>BUCHAHELP</h4><p>БО «Міжнародний гуманітарний фонд «Буча Хелп».</p><p>вул. Лувка Лук’яненка, 7<br>м. Буча, 08292, Україна</p><a href="tel:+380632040505">+38 063 204 05 05</a><a href="mailto:buchahelp@gmail.com">buchahelp@gmail.com</a></div>'+
-  '<div><h4>ФОНД</h4><a href="about.html">Про фонд</a><a href="about.html#team">Команда та партнери</a><a href="transparency.html">Прозорість і звіти</a><a href="index.html#news">Новини</a><a href="disinfo.html">Протидія рф пропаганді</a></div>'+
+  var f='<footer class="site"><div class="wrap"><div class="fgrid"><div><a class="flogo" href="index.html"><img src="logo.png" alt="BuchaHelp" width="122" height="40"></a><p>БО «Міжнародний гуманітарний фонд «Буча Хелп».</p><p>вул. Лувка Лук’яненка, 7<br>м. Буча, 08292, Україна</p><a href="tel:+380632040505">+38 063 204 05 05</a><a href="mailto:buchahelp@gmail.com">buchahelp@gmail.com</a></div>'+
+  '<div><h4>ФОНД</h4><a href="about.html">Про фонд</a><a href="projects.html">Проєкти</a><a href="partners.html">Партнери</a><a href="ambassadors.html">Амбасадори</a><a href="about.html#team">Команда</a><a href="transparency.html">Прозорість і звіти</a><a href="disinfo.html">Протидія рф пропаганді</a></div>'+
   '<div><h4>ДОПОМОГТИ</h4><a href="donate.html">Підтримати грошима</a><a href="help.html#things">Передати речі</a><a href="help.html#time">Стати волонтером</a><a href="help.html#business">Для бізнесу</a></div>'+
   '<div><h4>РЕКВІЗИТИ І СОЦМЕРЕЖІ</h4><p class="ph-y">ЄДРПОУ: [вкаже фонд]</p><p class="ph-y">Facebook · Instagram · Telegram: [посилання вкаже фонд]</p><a href="#">Політика конфіденційності</a></div></div>'+
   '<div class="fbot">Концепція дизайну сайту. Підготував Зав’ялов Денис. Тексти зі знаком [ ] або «Чернетка» потребують підтвердження фондом.</div></div></footer>'+
@@ -146,14 +152,28 @@ $$('.trip').forEach(function(tr){tr.addEventListener('click',function(){
 /* ---------- перевірка новини ---------- */
 var ck=$('#chk');
 if(ck){
-  var qs=['Невідомий або анонімний канал, немає контактів','Немає дати або фото старе','Немає посилання на першоджерело','Новина викликає сильний страх чи гнів і закликає негайно поширити','Не знайшов підтвердження в інших незалежних джерелах'];
+  var qs=['Невідоме джерело, немає дати чи першоджерела','Новина тисне на емоції й просить негайно поширити','Інші незалежні джерела цього не підтверджують'];
   ck.innerHTML=qs.map(function(q,i){return '<label><input type="checkbox" data-i="'+i+'"><span>'+q+'</span></label>'}).join('');
   var bar=$('#meterBar'),msg=$('#meterMsg');
   function upd(){
     var n=$$('input:checked',ck).length,p=n/qs.length*100;bar.style.width=p+'%';
-    bar.style.background=n<=1?'#2fb36b':n<=3?'#f0a500':'#e5484d';
-    msg.textContent=n===0?'Відмітьте ознаки, які ви помітили в новині.':n<=1?'Ознак мало, але перевірте ще дату та першоджерело.':n<=3?'Є кілька тривожних ознак. Не поширюйте, поки не перевірите.':'Багато ознак фейку. Не поширюйте і перевірте в StopFake або Центрі протидії дезінформації.';
+    bar.style.background=n===0?'#2fb36b':n===1?'#f0a500':'#e5484d';
+    msg.textContent=n===0?'Відмітьте ознаки, які ви помітили.':n===1?'Одна ознака. Перевірте дату й першоджерело.':'Кілька ознак фейку. Не поширюйте, поки не перевірите.';
   }
   ck.addEventListener('change',upd);upd();
 }
+
+/* ---------- проєкти: модальне вікно ---------- */
+$$('.pj').forEach(function(p){p.addEventListener('click',function(){
+  openModal('<h3>'+p.getAttribute('data-title')+'</h3><p class="note">'+p.getAttribute('data-meta')+'</p><p>'+p.getAttribute('data-text')+'</p><div class="what">Результати: [вкаже фонд]<br>Партнери: [вкаже фонд]<br>Як допомогти: <a href="donate.html">підтримати</a></div><button class="btn navy" id="cl">Закрити</button>');
+  var c=$('#cl',modal);if(c)c.addEventListener('click',closeModal)})});
+/* ---------- фільтри ---------- */
+$$('.fchips').forEach(function(box){
+  var target=D.getElementById(box.getAttribute('data-target'));if(!target)return;
+  $$('.fchip',box).forEach(function(ch){ch.addEventListener('click',function(){
+    $$('.fchip',box).forEach(function(x){x.classList.toggle('on',x===ch)});
+    var f=ch.getAttribute('data-f');
+    $$('[data-c]',target).forEach(function(it){it.style.display=(f==='all'||it.getAttribute('data-c')===f)?'':'none'});
+  })});
+});
 })();
