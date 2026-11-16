@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Звітність фонду: надходження (демо)</title>
+<style>
+  :root{--navy:#002866;--navy2:#1a3f84;--yellow:#ffd21f;--bg:#f4f6fa;--line:#d9dfec;--text:#1b2430;--muted:#5d6b82}
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.45}
+  .wrap{max-width:1180px;margin:0 auto;padding:24px 16px 56px}
+  .demo{background:var(--yellow);color:var(--navy);font-weight:700;padding:8px 14px;border-radius:6px;margin-bottom:18px;font-size:14px}
+  h1{font-size:32px;margin:0 0 6px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px}
+  .sub{color:var(--muted);margin:0 0 22px;font-size:14px}
+  .bar{border-top:3px solid var(--navy);padding-top:18px}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-bottom:16px}
+  .group{display:flex;flex-direction:column;gap:4px}
+  label{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--navy);letter-spacing:.4px}
+  select,input{height:40px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:0 10px;font-size:14px;color:var(--text);min-width:130px}
+  input[type=number]{min-width:100px;width:110px}
+  .seg{display:flex;gap:6px}
+  .seg button,.tab,.apply,.sw button{cursor:pointer;font:inherit}
+  .seg button{border:1px solid var(--line);background:var(--bg);color:var(--muted);height:34px;padding:0 12px;border-radius:6px;font-size:13px}
+  .seg button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .apply{height:40px;background:var(--navy);color:#fff;border:0;border-radius:6px;padding:0 22px;font-weight:700;text-transform:uppercase;font-size:13px}
+  .reset{height:40px;background:none;border:1px solid var(--line);border-radius:6px;padding:0 14px;color:var(--muted);cursor:pointer}
+  .period{margin:14px 0 6px;text-align:center;font-weight:700;color:var(--navy);font-size:15px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 26px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:18px 16px;text-align:center}
+  .card h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;color:var(--navy);letter-spacing:.4px}
+  .card .v{font-size:34px;font-weight:800;color:var(--navy)}
+  .card .v small{font-size:16px;font-weight:700;margin-left:4px}
+  .card .s{color:var(--muted);font-size:13px;margin-top:4px}
+  .note{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:14px;margin-bottom:24px}
+  .chartbox{border:1px solid var(--line);border-radius:10px;padding:14px 14px 8px;margin-bottom:26px}
+  .charthead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .charthead b{color:var(--navy);text-transform:uppercase;font-size:13px;letter-spacing:.4px}
+  .sw{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .sw button{border:0;background:#fff;padding:7px 14px;font-size:13px;color:var(--muted)}
+  .sw button.on{background:var(--navy);color:#fff}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted);margin:6px 0 4px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  svg{width:100%;height:auto;display:block}
+  .tabs{display:flex;gap:4px;border-bottom:2px solid var(--navy);margin-bottom:14px}
+  .tab{background:none;border:0;padding:12px 18px;font-weight:800;text-transform:uppercase;font-size:14px;color:var(--muted);border-bottom:4px solid transparent;margin-bottom:-2px}
+  .tab.on{color:var(--navy);border-bottom-color:var(--navy)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+  th{background:var(--bg);text-align:left;padding:10px 12px;font-size:13px;white-space:nowrap;border-bottom:2px solid var(--navy)}
+  th.sort{cursor:pointer}
+  td{padding:10px 12px;border-bottom:1px solid #edf0f6}
+  tr:nth-child(even) td{background:#fafbfd}
+  td.n,th.n{text-align:right}
+  .pager{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:14px;color:var(--muted);flex-wrap:wrap;gap:8px}
+  .pager button{height:34px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
+  .pager button:disabled{opacity:.4;cursor:default}
+  .foot{margin-top:30px;color:var(--muted);font-size:13px}
+  @media (max-width:760px){h1{font-size:24px}.cards{grid-template-columns:1fr}.card .v{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="demo">ДЕМО. Дані в цій сторінці умовні, згенеровані для показу. Реальних надходжень фонду тут немає.</div>
+  <h1>Звітність фонду: надходження</h1>
+  <p class="sub">Приклад сторінки для сайту БО «МГФ «Буча Хелп». Усі суми та імена умовні.</p>
+
+  <div class="bar">
+    <div class="row">
+      <div class="group"><label>Період</label>
+        <div class="seg" id="seg">
+          <button data-m="1">1 місяць</button><button data-m="6">6 місяців</button><button data-m="12">1 рік</button><button data-m="0" class="on">Усе</button>
+        </div></div>
+      <div class="group"><label>Від</label><input type="date" id="from"></div>
+      <div class="group"><label>До</label><input type="date" id="to"></div>
+    </div>
+    <div class="row">
+      <div class="group"><label>Джерело</label><select id="src"></select></div>
+      <div class="group"><label>Валюта</label><select id="cur"><option value="">Усі</option><option>UAH</option><option>EUR</option><option>PLN</option></select></div>
+      <div class="group"><label>Сума від, грн</label><input type="number" id="min" min="0" placeholder="0"></div>
+      <div class="group"><label>Сума до, грн</label><input type="number" id="max" min="0" placeholder="∞"></div>
+      <div class="group"><label>Ключове слово</label><input type="text" id="kw" placeholder="наприклад, генератор"></div>
+      <button class="apply" id="apply">Застосувати</button>
+      <button class="reset" id="reset">Скинути</button>
+    </div>
+  </div>
+
+  <div class="period" id="period"></div>
+
+  <div class="cards">
+    <div class="card"><h3>Загальна сума</h3><div class="v" id="k1">0<small>грн</small></div><div class="s" id="k1s"></div></div>
+    <div class="card"><h3>Кількість надходжень</h3><div class="v" id="k2">0</div><div class="s" id="k2s"></div></div>
+    <div class="card"><h3>Середнє надходження</h3><div class="v" id="k3">0<small>грн</small></div><div class="s" id="k3s"></div></div>
+  </div>
+
+  <div class="note"><b>«Буча Хелп» публікує надходження відкрито.</b> Імена донорів показуємо лише за їхньою згодою, решту знеособлюємо. Дані оновлюються раз на тиждень.</div>
+
+  <div class="chartbox">
+    <div class="charthead"><b>Надходження за період, грн</b>
+      <div class="sw" id="step"><button data-s="month" class="on">Місяць</button><button data-s="week">Тиждень</button></div></div>
+    <div class="legend" id="legend"></div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="tabs"><button class="tab on" data-t="money">Грошові надходження</button><button class="tab" data-t="goods">Майнові пожертви</button></div>
+  <div class="tablewrap"><table id="tbl"></table></div>
+  <div class="pager"><span id="count"></span><span><button id="prev">Назад</button> <button id="next">Далі</button></span></div>
+  <p class="foot">Демо-версія. У робочій версії дані ведуться в таблиці фонду, а сторінка оновлюється автоматично.</p>
+</div>
+
+<script>
+(function(){
+  var TODAY = new Date(2026, 10, 16);
+  var SRC = ["Картка на сайті","Monobank","ПриватБанк","PayPal","Готівка"];
+  var COL = ["#002866","#1f6fd6","#7ea6e0","#ffd21f","#8b9ab5"];
+  var CURS = [["UAH",1],["EUR",45],["PLN",10.4]];
+  var seed = 20261116;
+  function rnd(){ seed = (seed*1664525 + 1013904223) % 4294967296; return seed/4294967296; }
+  function pick(a){ return a[Math.floor(rnd()*a.length)]; }
+  var amountsUAH = [50,100,100,200,250,300,500,500,750,1000,1500,2000,3000,5000,8000];
+  var money = [];
+  for(var i=0;i<190;i++){
+    var d = new Date(TODAY.getTime() - Math.floor(rnd()*365)*86400000 - Math.floor(rnd()*86400000));
+    var src = pick(SRC), c = CURS[0];
+    var r = rnd(); if(src==="PayPal") c = r<.6?CURS[1]:CURS[2]; else if(src==="Картка на сайті" && r<.15) c = CURS[1];
+    var base = pick(amountsUAH), sum, orig;
+    if(c[0]==="UAH"){ sum = base; orig = base+" UAH"; }
+    else { var q = Math.max(5,Math.round(base/c[1]/5)*5); sum = Math.round(q*c[1]*100)/100; orig = q+" "+c[0]; }
+    var cc = pick(["UKR","UKR","UKR","POL","LTU","DEU"]);
+    var tail = String(1000+Math.floor(rnd()*9000)).slice(1);
+    money.push({d:d,src:src,sum:sum,cur:c[0],com:(src==="Готівка"?"Готівка, акція":cc+" ***"+tail)+" ("+orig+")"});
+  }
+  var goodsList = [
+    ["Аптечка першої допомоги",420,[20,40,60]],["Павербанк 20000 mAh",950,[10,15]],["Генератор 3 кВт",18500,[1,2]],
+    ["Дитячий одяг, комплект",650,[30,50,80]],["Продуктовий набір",780,[40,60,100]],["Шкільний набір",350,[25,40]],
+    ["Спальний мішок",1900,[10,20]],["Буржуйка",4200,[3,5]],["Ковдра",560,[20,30]],["Взуття зимове, пара",1300,[15,25]]
+  ];
+  var donors = ["Невідомий благодійник","Невідомий благодійник","Невідомий благодійник","Компанія партнер","Громада с. Квітневе","Приватна особа (за згодою)"];
+  var goods = [];
+  for(var j=0;j<24;j++){
+    var g = pick(goodsList), qn = pick(g[2]);
+    var d2 = new Date(TODAY.getTime() - Math.floor(rnd()*330)*86400000);
+    goods.push({d:d2,name:g[0],price:g[1],qty:qn,sum:g[1]*qn,donor:pick(donors)});
+  }
+  money.sort(function(a,b){return b.d-a.d}); goods.sort(function(a,b){return b.d-a.d});
+
+  var $ = function(id){return document.getElementById(id)};
+  var fmt = function(n){return Math.round(n).toLocaleString("uk-UA")};
+  var fmtD = function(d){return ("0"+d.getDate()).slice(-2)+"."+("0"+(d.getMonth()+1)).slice(-2)+"."+d.getFullYear()};
+  var fmtDT = function(d){return fmtD(d)+", "+("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2)};
+  var state = {tab:"money",step:"month",sortKey:"d",sortDir:-1,page:0,per:12,months:0};
+  var rangeFrom, rangeTo;
+
+  var oldest = money[money.length-1].d;
+  var sel = $("src"); sel.innerHTML = '<option value="">Усі</option>' + SRC.map(function(s){return "<option>"+s+"</option>"}).join("");
+  function iso(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+  $("from").value = iso(oldest); $("to").value = iso(TODAY);
+
+  function filtered(){
+    var f = new Date($("from").value+"T00:00:00"), t = new Date($("to").value+"T23:59:59");
+    var src=$("src").value, cur=$("cur").value, kw=$("kw").value.trim().toLowerCase();
+    var mn = parseFloat($("min").value)||0, mx = parseFloat($("max").value)||Infinity;
+    rangeFrom=f; rangeTo=t;
+    var m = money.filter(function(x){return x.d>=f&&x.d<=t&&(!src||x.src===src)&&(!cur||x.cur===cur)&&x.sum>=mn&&x.sum<=mx&&(!kw||(x.com+x.src).toLowerCase().indexOf(kw)>-1)});
+    var g = goods.filter(function(x){return x.d>=f&&x.d<=t&&x.sum>=mn&&x.sum<=mx&&(!kw||(x.name+x.donor).toLowerCase().indexOf(kw)>-1)&&(!src)&&(!cur||cur==="UAH")});
+    return {m:m,g:g};
+  }
+
+  function renderCards(F){
+    var total = F.m.reduce(function(a,x){return a+x.sum},0), goodsSum = F.g.reduce(function(a,x){return a+x.sum},0);
+    var cnt = F.m.length;
+    $("k1").innerHTML = fmt(total)+"<small>грн</small>"; $("k1s").textContent = "Речі окремо: "+fmt(goodsSum)+" грн";
+    $("k2").textContent = fmt(cnt); $("k2s").textContent = "Майнових пожертв: "+F.g.length;
+    $("k3").innerHTML = (cnt?fmt(total/cnt):0)+"<small>грн</small>"; $("k3s").textContent = cnt?"Найбільше: "+fmt(Math.max.apply(null,F.m.map(function(x){return x.sum})))+" грн":"";
+    $("period").textContent = "Дані за період: від "+fmtD(rangeFrom)+" до "+fmtD(rangeTo);
+  }
+
+  function keyOf(d){
+    if(state.step==="month") return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2);
+    var t = new Date(d.getFullYear(),d.getMonth(),d.getDate()); var day=(t.getDay()+6)%7; t.setDate(t.getDate()-day); return iso(t);
+  }
+  function labelOf(k){
+    if(state.step==="month"){ var p=k.split("-"); return ["січ","лют","бер","кві","тра","чер","лип","сер","вер","жов","лис","гру"][+p[1]-1]+" "+p[0].slice(2); }
+    var q=k.split("-"); return q[2]+"."+q[1];
+  }
+  function renderChart(F){
+    var buckets = {}, keys = [];
+    F.m.forEach(function(x){
+      var k = keyOf(x.d); if(!buckets[k]){buckets[k]={}; keys.push(k);}
+      buckets[k][x.src] = (buckets[k][x.src]||0)+x.sum;
+    });
+    keys.sort();
+    if(!keys.length){ $("chart").innerHTML = '<p style="color:#5d6b82;padding:30px;text-align:center">Немає даних за вибраними умовами.</p>'; $("legend").innerHTML=""; return; }
+    var present = SRC.filter(function(s){return F.m.some(function(x){return x.src===s})});
+    $("legend").innerHTML = present.map(function(s){return '<span><i style="background:'+COL[SRC.indexOf(s)]+'"></i>'+s+'</span>'}).join("");
+    var W=1100,H=300,L=64,B=36,T=10,R=10, plotW=W-L-R, plotH=H-B-T;
+    var totals = keys.map(function(k){return Object.keys(buckets[k]).reduce(function(a,s){return a+buckets[k][s]},0)});
+    var maxV = Math.max.apply(null,totals), step = Math.pow(10,Math.floor(Math.log10(maxV||1)));
+    var top = Math.ceil(maxV/step)*step; if(top/step<3){step/=2;top=Math.ceil(maxV/step)*step;}
+    var svg = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Графік надходжень">';
+    for(var v=0; v<=top; v+=step){
+      var y = T+plotH-(v/top)*plotH;
+      svg += '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'" stroke="#e3e8f2" stroke-dasharray="4 4"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="12" fill="#5d6b82">'+(v>=1000?Math.round(v/1000)+" тис.":v)+'</text>';
+    }
+    var bw = Math.min(46, plotW/keys.length*0.62), gap = plotW/keys.length;
+    var skip = Math.ceil(keys.length/14);
+    keys.forEach(function(k,i){
+      var x = L + gap*i + (gap-bw)/2, acc = 0;
+      SRC.forEach(function(s){
+        var v = buckets[k][s]; if(!v) return;
+        var h = v/top*plotH, y = T+plotH-acc-h; acc += h;
+        svg += '<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+Math.max(h,1)+'" fill="'+COL[SRC.indexOf(s)]+'"><title>'+labelOf(k)+", "+s+": "+fmt(v)+' грн</title></rect>';
+      });
+      if(i%skip===0) svg += '<text x="'+(x+bw/2)+'" y="'+(H-12)+'" text-anchor="middle" font-size="12" fill="#5d6b82">'+labelOf(k)+'</text>';
+    });
+    svg += '</svg>';
+    $("chart").innerHTML = svg;
+  }
+
+  function sorted(arr){
+    var k = state.sortKey, dir = state.sortDir;
+    return arr.slice().sort(function(a,b){ var x=a[k], y=b[k]; if(x instanceof Date){x=+x;y=+y;} return (x<y?-1:x>y?1:0)*dir; });
+  }
+  function renderTable(F){
+    var rows, head;
+    if(state.tab==="money"){
+      rows = sorted(F.m);
+      head = '<tr><th class="sort" data-k="d">Дата, час ▾</th><th>Джерело</th><th class="n sort" data-k="sum">Сума, грн ▾</th><th>Коментар</th><th>Валюта</th></tr>';
+    } else {
+      rows = sorted(F.g);
+      head = '<tr><th class="sort" data-k="d">Дата ▾</th><th>Найменування</th><th class="n sort" data-k="price">Ціна, грн ▾</th><th class="n sort" data-k="qty">К-сть ▾</th><th class="n sort" data-k="sum">Сума, грн ▾</th><th>Благодійник</th></tr>';
+    }
+    var pages = Math.max(1, Math.ceil(rows.length/state.per)); if(state.page>=pages) state.page = pages-1;
+    var slice = rows.slice(state.page*state.per, (state.page+1)*state.per);
+    var body = slice.map(function(x){
+      if(state.tab==="money") return '<tr><td>'+fmtDT(x.d)+'</td><td>'+x.src+'</td><td class="n"><b>'+x.sum.toLocaleString("uk-UA",{minimumFractionDigits:2,maximumFractionDigits:2})+'</b></td><td>'+x.com+'</td><td>'+x.cur+'</td></tr>';
+      return '<tr><td>'+fmtD(x.d)+'</td><td><b>'+x.name+'</b></td><td class="n">'+fmt(x.price)+'</td><td class="n">'+x.qty+'</td><td class="n"><b>'+fmt(x.sum)+'</b></td><td>'+x.donor+'</td></tr>';
+    }).join("") || '<tr><td colspan="6" style="text-align:center;color:#5d6b82;padding:26px">Немає записів за вибраними умовами.</td></tr>';
+    $("tbl").innerHTML = '<thead>'+head+'</thead><tbody>'+body+'</tbody>';
+    $("count").textContent = rows.length ? "Записи "+(state.page*state.per+1)+"–"+Math.min(rows.length,(state.page+1)*state.per)+" з "+rows.length : "";
+    $("prev").disabled = state.page===0; $("next").disabled = state.page>=pages-1;
+    Array.prototype.forEach.call($("tbl").querySelectorAll("th.sort"), function(th){ th.onclick = function(){ var k=th.getAttribute("data-k"); if(state.sortKey===k) state.sortDir*=-1; else {state.sortKey=k; state.sortDir=-1;} render(); }; });
+  }
+  function render(){ var F = filtered(); renderCards(F); renderChart(F); renderTable(F); }
+
+  $("apply").onclick = function(){ state.page=0; render(); };
+  $("reset").onclick = function(){ ["src","cur","min","max","kw"].forEach(function(i){$(i).value=""}); $("from").value=iso(oldest); $("to").value=iso(TODAY); setSeg("0"); state.page=0; render(); };
+  function setSeg(m){ Array.prototype.forEach.call($("seg").children,function(b){b.classList.toggle("on",b.getAttribute("data-m")===m)}); }
+  Array.prototype.forEach.call($("seg").children,function(b){ b.onclick=function(){
+    var m=+b.getAttribute("data-m"); setSeg(String(m));
+    var to = new Date(TODAY), from;
+    if(m===0) from = oldest; else { from = new Date(TODAY); from.setMonth(from.getMonth()-m); }
+    $("from").value=iso(from); $("to").value=iso(to); state.page=0; render(); }; });
+  Array.prototype.forEach.call($("step").children,function(b){ b.onclick=function(){ state.step=b.getAttribute("data-s"); Array.prototype.forEach.call($("step").children,function(x){x.classList.toggle("on",x===b)}); render(); }; });
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(b){ b.onclick=function(){ state.tab=b.getAttribute("data-t"); state.page=0; state.sortKey="d"; state.sortDir=-1; Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(x){x.classList.toggle("on",x===b)}); render(); }; });
+  $("prev").onclick=function(){ if(state.page>0){state.page--; render();} };
+  $("next").onclick=function(){ state.page++; render(); };
+  ["kw"].forEach(function(i){ $(i).addEventListener("keydown",function(e){ if(e.key==="Enter"){state.page=0;render();} }); });
+  render();
+})();
+</script>
+</body>
+</html>
