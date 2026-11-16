@@ -290,3 +290,38 @@ iframe.dash{width:100%;border:1px solid var(--line);border-radius:24px;height:15
 .pwall.mini .pimg{height:92px;padding:10px}.pwall.mini .plogo img{max-height:70px}
 .logo img{background:#fff;border-radius:12px;padding:4px 10px;height:44px;box-sizing:border-box;width:auto}
 [data-theme=dark] .logo img{padding:4px 10px}
+
+/* v2d: лелека, логотип */
+.stage{display:block;width:100%;height:100%}
+.par{transition:transform .25s ease-out}
+.stars circle{fill:#fff;opacity:.75;animation:tw 3s ease-in-out infinite}
+.stars circle:nth-child(2n){animation-delay:-1s}.stars circle:nth-child(3n){animation-delay:-2s}
+@keyframes tw{50%{opacity:.15}}
+.cl ellipse{fill:#fff;opacity:.88}
+.cl.c1{animation:cl1 46s linear infinite}.cl.c2{animation:cl2 62s linear infinite}
+@keyframes cl1{from{transform:translateX(-160px)}to{transform:translateX(560px)}}
+@keyframes cl2{from{transform:translateX(200px)}to{transform:translateX(-520px)}}
+.float{animation:fl 4.4s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(-1.6deg)}}
+.wing{transform-origin:0 0;animation:flap 1.15s ease-in-out infinite}
+.wing.far{animation-delay:-.2s}
+@keyframes flap{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(92deg) scaleY(.9)}}
+.parcel{transform-origin:448px 158px;animation:sw 2.3s ease-in-out infinite}
+@keyframes sw{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
+.sunc{animation:pulse 6s ease-in-out infinite;transform-origin:118px 128px}
+.sea{animation:seam 7s linear infinite}.sea.s2{animation-duration:11s;animation-direction:reverse}
+@keyframes seam{to{transform:translateX(-240px)}}
+.logo{gap:11px}
+.logo img{display:none}
+.emb{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:linear-gradient(140deg,#0b2a63,#1f5fd6);box-shadow:0 4px 14px rgba(11,42,99,.35);flex:none;transition:transform .3s}
+.emb img{display:block;width:31px;height:auto}
+.logo:hover .emb{transform:rotate(-6deg) scale(1.06)}
+.wm{font-family:var(--head);font-weight:800;font-size:16px;letter-spacing:.04em;color:var(--ink);line-height:1;text-transform:uppercase}
+.wm b{display:block;font-weight:700;font-size:10px;letter-spacing:.32em;color:var(--blue);margin-top:4px}
+.flogo{display:flex;align-items:center;gap:11px;margin-bottom:14px;text-decoration:none;color:#fff;background:none;padding:0}
+.flogo img{background:none;border-radius:0;padding:0}
+.flogo .wm{color:#fff}.flogo .wm b{color:var(--yellow)}
+.flogo .emb img{width:31px}
+@media (prefers-reduced-motion:reduce){.wing,.float,.parcel,.cl,.sea,.stars circle,.sunc{animation:none!important}}
+
+.emb img{background:none!important;border-radius:0!important;padding:0!important;height:auto!important;width:31px;display:block}

@@ -15,17 +15,48 @@
       <div class="faces" aria-label="Команда фонду"><img src="p-gudauskas.jpg" alt="Костянтин Гудаускас" width="48" height="48"><img src="p-poklad.jpg" alt="Світлана Поклад" width="48" height="48"><img src="p-gamankova.jpg" alt="Ірина Гаманкова" width="48" height="48"><img src="p-matushevskyi.jpg" alt="Руслан Матушевський" width="48" height="48"><img src="p-piddubniak.jpg" alt="Сергій Піддубняк" width="48" height="48"><span>Команда фонду</span></div>
       <div class="mini"><span>● <b data-i18n="hero.m1">Звіти відкриті</b></span><a href="transparency.html" style="color:#8fc1ff">Бачити всі надходження →</a></div>
     </div>
-    <div class="scene" aria-hidden="true">
-      <div class="orb"></div>
-      <div class="dots"><i style="left:8%;top:18%"></i><i style="left:22%;top:8%;animation-delay:-2s"></i><i style="left:40%;top:22%;animation-delay:-4s"></i><i style="left:62%;top:12%;animation-delay:-1s"></i><i style="left:84%;top:38%;animation-delay:-5s"></i><i style="left:14%;top:44%;animation-delay:-3s"></i><i style="left:74%;top:60%;animation-delay:-6s"></i></div>
-      <svg class="boat b1" viewBox="0 0 140 90"><polygon points="0,50 140,50 118,84 22,84" fill="#7ec4a9"/><polygon points="70,0 70,50 22,50" fill="#b8ead7"/><polygon points="70,0 70,50 122,50" fill="#5fae90"/></svg>
-      <svg class="boat b2" viewBox="0 0 140 90"><polygon points="0,50 140,50 118,84 22,84" fill="#f2a1bf"/><polygon points="70,0 70,50 22,50" fill="#fbd0e0"/><polygon points="70,0 70,50 122,50" fill="#e98bb0"/></svg>
-      <svg class="boat b3" viewBox="0 0 140 90"><polygon points="0,50 140,50 118,84 22,84" fill="#ffd21f"/><polygon points="70,0 70,50 22,50" fill="#ffe680"/><polygon points="70,0 70,50 122,50" fill="#f0b400"/></svg>
-      <div class="waves">
-        <div class="wave a"></div>
-        <div class="wave b"></div>
-      </div>
-    </div>
+    <div class="scene" id="scene" aria-hidden="true">
+  <svg class="stage" viewBox="0 0 480 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a47a6"/><stop offset=".6" stop-color="#3b78de"/><stop offset="1" stop-color="#8fc1ff"/></linearGradient>
+      <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#fff0a8"/><stop offset="1" stop-color="#ffe273"/></radialGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffffff" stop-opacity=".5"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="480" height="480" fill="url(#sky)"/>
+    <g class="par" data-d="3"><circle cx="118" cy="128" r="120" fill="url(#glow)"/><circle class="sunc" cx="118" cy="128" r="52" fill="url(#sun)"/></g>
+    <g class="stars"><circle cx="60" cy="70" r="2"/><circle cx="130" cy="40" r="1.6"/><circle cx="210" cy="86" r="2"/><circle cx="270" cy="34" r="1.6"/><circle cx="440" cy="250" r="1.8"/><circle cx="36" cy="190" r="1.6"/></g>
+    <g class="par" data-d="7">
+      <g class="cl c1"><ellipse cx="90" cy="150" rx="46" ry="14"/><ellipse cx="118" cy="140" rx="30" ry="14"/><ellipse cx="70" cy="140" rx="26" ry="12"/></g>
+      <g class="cl c2"><ellipse cx="330" cy="300" rx="52" ry="15"/><ellipse cx="360" cy="289" rx="32" ry="14"/><ellipse cx="305" cy="290" rx="28" ry="12"/></g>
+    </g>
+    <g class="par" data-d="14">
+      <g transform="translate(0 30)"><g class="float">
+        <!-- ноги -->
+        <path d="M178 232 L98 262 M194 236 L110 276" stroke="#f5a623" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <!-- далеке крило -->
+        <g transform="translate(222 196)"><g class="wing far"><path d="M0 0 C-22 -66 -80 -118 -168 -140 C-142 -114 -142 -104 -168 -100 C-136 -88 -130 -76 -152 -62 C-108 -56 -60 -44 0 0 Z" fill="#e59a1a"/></g></g>
+        <!-- хвіст -->
+        <path d="M168 214 L108 226 L162 238 Z" fill="#f5a623"/>
+        <!-- тулуб -->
+        <path d="M160 214 C178 178 250 172 292 196 C318 210 322 232 298 240 C258 254 196 250 166 236 C148 228 146 220 160 214 Z" fill="#ffd21f"/>
+        <path d="M176 226 C214 240 262 242 296 236 C262 252 200 252 176 236 Z" fill="#f5a623" opacity=".75"/>
+        <!-- шия, голова -->
+        <path d="M288 200 C320 186 342 168 362 146" stroke="#ffd21f" stroke-width="22" stroke-linecap="round" fill="none"/>
+        <circle cx="368" cy="140" r="15" fill="#ffd21f"/>
+        <circle cx="372" cy="136" r="2.6" fill="#0b2a63"/>
+        <path d="M378 132 L452 158 L380 148 Z" fill="#f5a623"/>
+        <!-- посилання з серцем -->
+        <g class="parcel"><path d="M448 158 L448 192" stroke="#0b2a63" stroke-width="2" fill="none"/>
+          <rect x="426" y="190" width="44" height="38" rx="8" fill="#fff"/><rect x="445" y="190" width="6" height="38" fill="#1f5fd6"/>
+          <path d="M448 214 c-9 -7 -14 -12 -14 -17 a7 7 0 0 1 14 -2 a7 7 0 0 1 14 2 c0 5 -5 10 -14 17 Z" fill="#ffd21f" stroke="#0b2a63" stroke-width="1.2"/></g>
+        <!-- ближнє крило -->
+        <g transform="translate(236 198)"><g class="wing near"><path d="M0 0 C-22 -66 -80 -118 -168 -140 C-142 -114 -142 -104 -168 -100 C-136 -88 -130 -76 -152 -62 C-108 -56 -60 -44 0 0 Z" fill="#ffd21f"/><path d="M0 0 C-26 -46 -62 -82 -106 -104 C-92 -72 -62 -42 0 0 Z" fill="#f5a623"/></g></g>
+      </g></g>
+    </g>
+    <g class="par" data-d="4"><g class="sea"><path d="M0 396 Q60 380 120 396 T240 396 T360 396 T480 396 T600 396 T720 396 T840 396 T960 396 V500 H0Z" fill="#2a63c8" opacity=".92"/></g>
+    <g class="sea s2"><path d="M0 420 Q60 406 120 420 T240 420 T360 420 T480 420 T600 420 T720 420 T840 420 T960 420 V500 H0Z" fill="#163f94"/></g></g>
+  </svg>
+</div>
   </div>
   <div class="scroll">↓<i></i></div>
 </section>
@@ -93,7 +124,7 @@
 
 <section class="band"><div class="wrap">
   <span class="eyebrow" style="color:#ffd21f">Інформаційна війна</span>
-  <h2 data-i18n="s.dis">Протидія рф пропаганді</h2>
+  <h2 data-i18n="s.dis">Протидія пропаганді</h2>
   <p style="margin:14px 0 24px">Розпізнавайте фейки, користуйтеся перевіреними джерелами, не поширюйте дезінформацію. Спробуйте інтерактивну перевірку новини.</p>
   <a class="btn primary" href="disinfo.html">Перевірити новину</a>
 </div></section>

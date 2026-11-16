@@ -6,12 +6,12 @@ var $=function(s,r){return (r||D).querySelector(s)}, $$=function(s,r){return Arr
 
 /* ---------- словник UA / EN ---------- */
 var T={
- uk:{'nav.about':'Про фонд','nav.news':'Новини','nav.transp':'Прозорість','nav.help':'Як допомогти','nav.disinfo':'Протидія рф пропаганді','nav.contacts':'Контакти','sub.about':'Про нас','sub.projects':'Проєкти','sub.partners':'Партнери','sub.amb':'Амбасадори','sub.team':'Команда','sub.reports':'Звіти','cta.donate':'Підтримати','cta.vol':'Стати волонтером',
+ uk:{'nav.about':'Про фонд','nav.news':'Новини','nav.transp':'Прозорість','nav.help':'Як допомогти','nav.disinfo':'Протидія пропаганді','nav.contacts':'Контакти','sub.about':'Про нас','sub.projects':'Проєкти','sub.partners':'Партнери','sub.amb':'Амбасадори','sub.team':'Команда','sub.reports':'Звіти','cta.donate':'Підтримати','cta.vol':'Стати волонтером',
   'hero.title':'Віра у добро та силу єдності: наш шлях до кращого завтра','hero.lead':'Фонд «Буча Хелп» з 2022 року доставляє гуманітарну допомогу людям, які її потребують. Разом ми можемо більше.',
-  'hero.m1':'Звіти відкриті','hero.m2':'Допомога з 2022 року','s.nums':'Результати фонду','s.calc':'Що дає ваш внесок','s.ways':'Як допомогти','s.trips':'Історії поїздок','s.dis':'Протидія рф пропаганді','s.team':'Команда','s.partners':'Партнери'},
- en:{'nav.about':'About','nav.news':'News','nav.transp':'Transparency','nav.help':'Ways to help','nav.disinfo':'Countering Russian propaganda','nav.contacts':'Contacts','sub.about':'About us','sub.projects':'Projects','sub.partners':'Partners','sub.amb':'Ambassadors','sub.team':'Team','sub.reports':'Reports','cta.donate':'Donate','cta.vol':'Become a volunteer',
+  'hero.m1':'Звіти відкриті','hero.m2':'Допомога з 2022 року','s.nums':'Результати фонду','s.calc':'Що дає ваш внесок','s.ways':'Як допомогти','s.trips':'Історії поїздок','s.dis':'Протидія пропаганді','s.team':'Команда','s.partners':'Партнери'},
+ en:{'nav.about':'About','nav.news':'News','nav.transp':'Transparency','nav.help':'Ways to help','nav.disinfo':'Countering propaganda','nav.contacts':'Contacts','sub.about':'About us','sub.projects':'Projects','sub.partners':'Partners','sub.amb':'Ambassadors','sub.team':'Team','sub.reports':'Reports','cta.donate':'Donate','cta.vol':'Become a volunteer',
   'hero.title':'Faith in kindness and the strength of unity: our path to a better tomorrow','hero.lead':'Bucha Help has been delivering humanitarian aid since 2022 to people in need. Together we can do more.',
-  'hero.m1':'Open reports','hero.m2':'Helping since 2022','s.nums':'Our results','s.calc':'What your gift does','s.ways':'Ways to help','s.trips':'Stories from the road','s.dis':'Countering Russian propaganda','s.team':'Team','s.partners':'Partners'}
+  'hero.m1':'Open reports','hero.m2':'Helping since 2022','s.nums':'Our results','s.calc':'What your gift does','s.ways':'Ways to help','s.trips':'Stories from the road','s.dis':'Countering propaganda','s.team':'Team','s.partners':'Partners'}
 };
 var lang=LS.get('bh_lang')||'uk', theme=LS.get('bh_theme')||'light';
 function t(k){return (T[lang]&&T[lang][k])||T.uk[k]||k}
@@ -28,11 +28,11 @@ function buildChrome(){
       return '<li class="dd"><a href="'+n[0]+'"'+on+' aria-haspopup="true"><span data-i18n="'+n[1]+'">'+t(n[1])+'</span> ▾</a><ul class="sub">'+sub+'</ul></li>'}
     return '<li><a href="'+n[0]+'"'+on+' data-i18n="'+n[1]+'">'+t(n[1])+'</a></li>'}).join('');
   var h='<div class="progress" id="prog"></div><div class="ribbon">Концепція дизайну. Це не офіційний сайт фонду, тексти-чернетки позначено.</div>'+
-  '<header class="site has-ribbon" id="hdr"><div class="bar"><div class="nav"><a class="logo" href="index.html" aria-label="BuchaHelp"><img src="logo.png" alt="BuchaHelp" width="122" height="40"></a>'+
+  '<header class="site has-ribbon" id="hdr"><div class="bar"><div class="nav"><a class="logo" href="index.html" aria-label="BuchaHelp"><span class="emb"><img src="emblem.png" alt="" width="216" height="160"></span><span class="wm">Bucha<b>Help</b></span></a>'+
   '<ul class="menu" id="menu">'+items+'</ul><div class="tools"><button class="tool" id="lang" aria-label="Мова">'+(lang==='uk'?'UA':'EN')+'</button><button class="tool" id="theme" aria-label="Тема">'+(theme==='dark'?'☀':'☾')+'</button>'+
   '<button class="btn primary sm" data-donate data-i18n="cta.donate">'+t('cta.donate')+'</button><button class="tool burger" id="burger" aria-label="Меню" aria-expanded="false">☰</button></div></div></div></header>';
-  var f='<footer class="site"><div class="wrap"><div class="fgrid"><div><a class="flogo" href="index.html"><img src="logo.png" alt="BuchaHelp" width="122" height="40"></a><p>БО «Міжнародний гуманітарний фонд «Буча Хелп».</p><p>вул. Лувка Лук’яненка, 7<br>м. Буча, 08292, Україна</p><a href="tel:+380632040505">+38 063 204 05 05</a><a href="mailto:buchahelp@gmail.com">buchahelp@gmail.com</a></div>'+
-  '<div><h4>ФОНД</h4><a href="about.html">Про фонд</a><a href="projects.html">Проєкти</a><a href="partners.html">Партнери</a><a href="ambassadors.html">Амбасадори</a><a href="about.html#team">Команда</a><a href="transparency.html">Прозорість і звіти</a><a href="disinfo.html">Протидія рф пропаганді</a></div>'+
+  var f='<footer class="site"><div class="wrap"><div class="fgrid"><div><a class="flogo" href="index.html"><span class="emb"><img src="emblem.png" alt="" width="216" height="160"></span><span class="wm">Bucha<b>Help</b></span></a><p>БО «Міжнародний гуманітарний фонд «Буча Хелп».</p><p>вул. Лувка Лук’яненка, 7<br>м. Буча, 08292, Україна</p><a href="tel:+380632040505">+38 063 204 05 05</a><a href="mailto:buchahelp@gmail.com">buchahelp@gmail.com</a></div>'+
+  '<div><h4>ФОНД</h4><a href="about.html">Про фонд</a><a href="projects.html">Проєкти</a><a href="partners.html">Партнери</a><a href="ambassadors.html">Амбасадори</a><a href="about.html#team">Команда</a><a href="transparency.html">Прозорість і звіти</a><a href="disinfo.html">Протидія пропаганді</a></div>'+
   '<div><h4>ДОПОМОГТИ</h4><a href="donate.html">Підтримати грошима</a><a href="help.html#things">Передати речі</a><a href="help.html#time">Стати волонтером</a><a href="help.html#business">Для бізнесу</a></div>'+
   '<div><h4>РЕКВІЗИТИ І СОЦМЕРЕЖІ</h4><p class="ph-y">ЄДРПОУ: [вкаже фонд]</p><p class="ph-y">Facebook · Instagram · Telegram: [посилання вкаже фонд]</p><a href="#">Політика конфіденційності</a></div></div>'+
   '<div class="fbot">Концепція дизайну сайту. Підготував Зав’ялов Денис. Тексти зі знаком [ ] або «Чернетка» потребують підтвердження фондом.</div></div></footer>'+
@@ -176,4 +176,14 @@ $$('.fchips').forEach(function(box){
     $$('[data-c]',target).forEach(function(it){it.style.display=(f==='all'||it.getAttribute('data-c')===f)?'':'none'});
   })});
 });
+
+/* ---------- паралакс лелеки ---------- */
+var hero=$('#top'),scene=$('#scene');
+if(hero&&scene&&!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches)){
+  var pars=$$('.par',scene);
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect(),x=((e.clientX-r.left)/r.width-.5)*2,y=((e.clientY-r.top)/r.height-.5)*2;
+    pars.forEach(function(g){var d=+g.getAttribute('data-d');g.style.transform='translate('+(-x*d).toFixed(1)+'px,'+(-y*d*.7).toFixed(1)+'px)'})});
+  hero.addEventListener('mouseleave',function(){pars.forEach(function(g){g.style.transform=''})});
+}
 })();
