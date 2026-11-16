@@ -15,7 +15,7 @@ header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-weight:800;font-size:20px;letter-spacing:.3px}
 .logo .mark{width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--yellow);display:grid;place-items:center;font-size:16px}
 .menu{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
-.menu a{display:block;padding:10px 12px;text-decoration:none;font-weight:600;font-size:15px;border-radius:6px;color:var(--text)}
+.menu a{display:block;padding:10px 9px;text-decoration:none;font-weight:600;font-size:15px;border-radius:6px;color:var(--text)}
 .menu a:hover,.menu a.on{background:var(--bg);color:var(--navy)}
 .lang{font-size:14px;color:var(--muted);padding:0 6px}
 .btn{display:inline-block;border-radius:8px;padding:14px 26px;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:.4px;font-size:14px;border:2px solid transparent;cursor:pointer;font-family:inherit;text-align:center}
